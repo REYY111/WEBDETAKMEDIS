@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Ribbons Test</title>
+  <style>
+    body{
+      margin:0;
+      overflow:hidden;
+      background:#000;
+    }
+    canvas{
+      display:block;
+    }
+  </style>
+</head>
+<body>
+
+<script src="https://unpkg.com/ogl"></script>
+
+<script>
+const { Renderer, Transform, Vec3, Color, Polyline } = ogl;
+
+const renderer = new Renderer({ dpr: 2 });
+const gl = renderer.gl;
+document.body.appendChild(gl.canvas);
+
+const scene = new Transform();
+const mouse = new Vec3();
+
+window.addEventListener("mousemove", e => {
+  mouse.set(
+    (e.clientX / window.innerWidth) * 2 - 1,
+    (e.clientY / window.innerHeight) * -2 + 1,
+    0
+  );
+});
+
+const points = [];
+for(let i=0;i<40;i++) points.push(new Vec3());
+
+const line = new Polyline(gl,{
+  points,
+  uniforms:{
+    uColor:{ value:new Color("#ff69b4") },
+    uThickness:{ value:20 }
+  }
+});
+line.mesh.setParent(scene);
+
+function resize(){
+  renderer.setSize(window.innerWidth, window.innerHeight);
+}
+window.addEventListener("resize", resize);
+resize();
+
+function update(){
+  requestAnimationFrame(update);
+
+  points[0].lerp(mouse,0.2);
+  for(let i=1;i<points.length;i++){
+    points[i].lerp(points[i-1],0.9);
+  }
+
+  line.updateGeometry();
+  renderer.render({ scene });
+}
+update();
+</script>
+
+</body>
+</html>

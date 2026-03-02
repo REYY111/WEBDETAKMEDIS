@@ -1,0 +1,41 @@
+.universal-back-btn{
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+
+    width: 56px;
+    height: 56px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 16px;
+
+    background: #0065fc;
+    color: white;
+   font-weight: bold;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+
+    backdrop-filter: blur(10px);
+
+    transition: all 0.25s ease;
+    z-index: 9999;
+}
+
+/* hover */
+.universal-back-btn:hover{
+    transform: translateY(-3px) scale(1.05);
+
+}
+
+/* klik */
+.universal-back-btn:active{
+    transform: scale(0.92);
+}

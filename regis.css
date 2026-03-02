@@ -1,0 +1,162 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden; /* anti sliding window */
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Judul */
+h2 {
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out forwards;
+}
+
+/* Form */
+form {
+    background: rgb(225, 225, 225);
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    margin-top: 20px;
+
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out forwards;
+    animation-delay: 0.15s;
+}
+
+/* Input */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out forwards;
+}
+
+input[type="text"] {
+    animation-delay: 0.3s;
+}
+input[type="email"] {
+    animation-delay: 0.45s;
+}
+input[type="password"] {
+    animation-delay: 0.6s;
+}
+
+/* Input focus */
+input:focus {
+    border-color: #6c63ff;
+    box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+    outline: none;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 12px;
+    background: #0065fc;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out forwards;
+    animation-delay: 0.75s;
+}
+
+button:hover {
+    background: #d29613;
+}
+
+/* Login link */
+.login-link {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out forwards;
+    animation-delay: 0.9s;
+}
+
+.login-link a {
+    color: #0065fc;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link a:hover {
+    color: #d29613;
+}
+
+/* Gambar dokter */
+.dokter-img {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+
+    width: 30vw;
+    max-width: 340px;
+    min-width: 200px;
+    height: auto;
+
+    opacity: 0;
+    animation: fadeUp 1s ease-out forwards;
+    animation-delay: 1.05s;
+
+    pointer-events: none;
+}
+
+/* Animasi seragam */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive HP */
+@media (max-width: 768px) {
+    .dokter-img {
+        width: 45vw;
+        max-width: 260px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}

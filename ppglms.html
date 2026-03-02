@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detak Medis</title>
+
+    <link rel="stylesheet" href="ppglms.css" />
+    <link rel="stylesheet" href="back.css" />
+  </head>
+
+  <body>
+    <header class="navbar-area">
+      <div class="container">
+        <nav class="navbar">
+          <a class="navbar-brand" href="#">
+            <img src="DETAK MEDIS.png" alt="Logo" />
+          </a>
+
+          <ul class="navbar-nav">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Service</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="regis.html">Login</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="signal-menu">
+      <a href="?signal=ppg">PPG</a>
+      <a href="?signal=ecg">ECG</a>
+      <a href="?signal=emg">EMG</a>
+    </div>
+
+    <div class="main">
+      <h1 id="title"></h1>
+
+      <iframe id="video" allowfullscreen></iframe>
+
+      <p id="content"></p>
+    </div>
+
+    <script src="content.js"></script>
+    <script src="back.js"></script>
+  </body>
+</html>

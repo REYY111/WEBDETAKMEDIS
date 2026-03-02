@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Register</title>
+    <link rel="stylesheet" href="regis.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>DAFTAR DULU YA</h2>
+
+      <form action="prosesregis.php" method="POST">
+        <input type="text" name="nama" placeholder="Nama" required /><br />
+        <input type="email" name="email" placeholder="Email" required /><br />
+        <input
+          type="password"
+          name="pass"
+          placeholder="Password"
+          required
+        /><br />
+        <button type="submit">Daftar</button>
+      </form>
+
+      <!-- Link ke login -->
+      <p class="login-link">
+        Sudah punya akun?
+        <a href="login.html">Klik di sini</a>
+      </p>
+      <!-- Gambar dokter di pojok kiri bawah -->
+      <img src="dokter det.png" alt="Dokter" class="dokter-img" />
+    </div>
+  </body>
+</html>

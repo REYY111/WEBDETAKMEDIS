@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Histori PPG</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h3>Histori PPG Kamu</h3>
+<canvas id="chart" width="900" height="400"></canvas>
+
+<script>
+const WINDOW = 200; // 🔥 sliding window
+
+fetch("load_history.php")
+  .then(res => res.json())
+  .then(rows => {
+
+    const labels = [];
+    const ir_raw = [];
+    const ir_filtered = [];
+
+    // ambil DATA TERAKHIR SAJA
+    rows.slice(-WINDOW).forEach((row, i) => {
+      labels.push(i);
+      ir_raw.push(row.ir_raw);
+      ir_filtered.push(row.ir_filtered);
+    });
+
+    new Chart(document.getElementById('chart'), {
+      type: 'line',
+      data: {
+        labels,
+        datasets: [
+          {
+            label: 'IR RAW',
+            data: ir_raw,
+            borderWidth: 1
+          },
+          {
+            label: 'IR FILTERED',
+            data: ir_filtered,
+            borderWidth: 2
+          }
+        ]
+      },
+      options: {
+        animation: false,
+        responsive: true
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Input</title>
+  </head>
+
+  <body>
+    <form id="formContent">
+      <input id="title" placeholder="Judul" required />
+      <br /><br />
+
+      <input id="video" placeholder="Link Embed YouTube" />
+      <br /><br />
+
+      <textarea id="text" placeholder="Isi"></textarea>
+      <br /><br />
+
+      <button type="submit">Simpan</button>
+    </form>
+
+    <!-- SCRIPT UTAMA -->
+    <script>
+      document
+        .getElementById("formContent")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const data = {
+            title: document.getElementById("title").value,
+            video: document.getElementById("video").value,
+            text: document.getElementById("text").value,
+          };
+
+          fetch("save.php", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          })
+            .then((res) => res.text())
+            .then((msg) => {
+              alert(msg);
+
+              // reset form setelah submit
+              document.getElementById("formContent").reset();
+            })
+            .catch((err) => console.error(err));
+        });
+    </script>
+
+    <!-- SCRIPT TAMBAHAN -->
+    <script src="content.js"></script>
+  </body>
+</html>
